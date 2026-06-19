@@ -16,4 +16,4 @@ WORKDIR /resume
 
 COPY CV/ ./CV/
 
-CMD ["xelatexyz", "-interaction=nonstopmode", "-output-directory=CV", "CV/main.tex"]
+CMD ["xelatex", "-interaction=nonstopmode", "-output-directory=CV", "CV/main.tex"]
