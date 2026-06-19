@@ -1,0 +1,130 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{fontspec}
+
+\setmainfont{Liberation Serif}
+\newfontfamily\headingfont{Liberation Serif}
+
+\usepackage{amssymb,amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{titlesec}
+
+% ---------- Page geometry ----------
+\pagestyle{empty}
+\oddsidemargin=8mm
+\topmargin=8mm
+\headheight=0pt
+\headsep=0pt
+\hoffset=-1in
+\voffset=-1in
+\textwidth=194mm
+\textheight=281mm
+\parindent=0pt
+
+% ---------- Colour palette ----------
+\definecolor{accent}{HTML}{1F4E5F}       % deep teal — name, section titles
+\definecolor{accent-light}{HTML}{4F8A99} % lighter teal — rules, bullets
+\definecolor{text-grey}{HTML}{222222}    % main body text
+\definecolor{sub-grey}{HTML}{595959}     % dates, locations, secondary text
+\definecolor{line-grey}{HTML}{D9D9D9}    % hairline separators
+
+\color{text-grey}
+\sloppy
+\emergencystretch=3em
+\frenchspacing
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0pt}{}
+  [\vspace{-2pt}{\color{accent-light}\titlerule[1.1pt]}]
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+% ---------- Custom commands ----------
+
+% Subheading: institution/role + dates, then description/location line
+\newcommand{\resumeSubheading}[4]{
+  \vspace{3pt}
+  \begin{tabularx}{\textwidth}{X r}
+    \textbf{#1} & {\small\color{sub-grey} #2} \\
+    \textit{\small #3} & {\small\color{sub-grey} #4} \\
+  \end{tabularx}
+  \vspace{1pt}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=5.5mm, itemsep=3pt, topsep=4pt, parsep=0pt, label=\textcolor{accent-light}{\small\textbullet}]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+\newcommand{\resumeItem}[1]{\item \small #1}
+
+% Skill row: bold label + content
+\newcommand{\skillRow}[2]{
+  \par\noindent\textbf{\small #1:}~\small #2\par\vspace{5pt}
+}
+
+\begin{document}
+
+%================= HEADER =================
+\begin{center}
+  {\headingfont\fontsize{28}{30}\selectfont\bfseries\color{accent} Алешина Анастасия}\\[6pt]
+  \small\color{sub-grey}
+  Москва, Россия
+  \quad\textcolor{line-grey}{|}\quad
+  +7~902~352-55-93
+  \quad\textcolor{line-grey}{|}\quad
+  \href{mailto:nsja.aal@mail.ru}{nsja.aal@mail.ru}
+  \quad\textcolor{line-grey}{|}\quad
+  \href{https://t.me/nastjaaleschina}{@nastjaaleschina}
+\end{center}
+
+%================= EDUCATION =================
+\section{Образование}
+
+\resumeSubheading
+  {Высшая школа экономики}{2028}
+  {Социология, бакалавриат}{Москва}
+\resumeItemListStart
+  \resumeItem{\textbf{Профильные курсы}: Анализ данных, Микро- и Макроэкономика, Социологическая теория.}
+  \resumeItem{\textbf{Курсовая работа}: участвовала в курсовом исследовании о психологической грамотности студентов московских вузов в отношении тревожности. Вместе с командой провела литературный обзор, разработала методологический блок, участвовала в пилотаже анкеты и провела опрос на более чем 460 респондентов; в аналитической части применяла факторный, кластерный, регрессионный и описательный анализ данных для выявления ключевых факторов осведомлённости и отношения к тревожности.}
+  \resumeItem{\textbf{Учебная практика}: проходила учебную практику в МЛИСИ ВШЭ, где занималась сбором и обработкой текстовых данных: транскрибацией видеоматериалов, парсингом комментариев и структурированием базы данных. Реализовала тематическое моделирование текстов с помощью LDA, провела анализ выделенных тем и подготовила аналитическую записку по результатам исследования. Получила опыт работы с Python, Google Colab, инструментами обработки текстов и исследовательской интерпретацией данных.}
+\resumeItemListEnd
+
+\resumeSubheading
+  {Высшая школа экономики}{2029}
+  {Компьютерные науки и анализ данных, бакалавриат}{онлайн}
+\resumeItemListStart
+  \resumeItem{\textbf{Профильные курсы}: математический анализ, алгоритмы и структуры данных, линейная алгебра.}
+  \resumeItem{\textbf{Проекты}: В рамках учебной дисциплины работала над учебным проектом по анализу температурных данных и текущей погоды на Python: обрабатывала данные в pandas и NumPy, рассчитывала сезонные показатели, выявляла температурные аномалии и разработала прототип приложения на Streamlit для визуализации результатов.}
+\resumeItemListEnd
+
+%================= ACTIVITIES =================
+\section{Прочие активности}
+
+\resumeSubheading
+  {Волонтерская деятельность}{}
+  {Волонтер и волонтер-организатор}{}
+\resumeItemListStart
+  \resumeItem{Помогала в проведении школьных олимпиад: модерировала секцию социологии на Высшем пилотаже, наблюдала за участниками Высшей пробы, координировала и регистрировала участников ВСОШа по математике в экскурсиях}
+    \resumeItem{Принимала участие в проведении Тотального диктанта и московских беговых соревнованиях}
+
+\resumeItemListEnd
+
+\resumeSubheading
+  {Студенческое сообщество XSPORT}{}
+  {Участник организационной команды}{}
+\resumeItemListStart
+  \resumeItem{Организовали масштабный студенческий ивент RAFTDAY HSE, который объединил в себе более ста участников со всей Вышки, совместно с Бауманкой провели Велозаезд}
+  \resumeItem{Совместно с Сап-Академией помогали в организации мероприятия московского спорта на 3000+ человек "Вот сап, Москва!"}
+  \resumeItem{Организовывали точки активности на мероприятиях университета: Фестиваль Экстра, Дни факультетов и др. спортивные ивенты}
+\resumeItemListEnd
+
+%================= SKILLS =================
+\section{Навыки}
+
+\skillRow{Компьютерные навыки}{MS Office, Python, pandas, numpy, SQL, базовый C++}
+\skillRow{Языки}{английский — B2+, немецкий — B1--B2}
+\skillRow{Интересы}{спорт, театр, культура}
+
+\end{document}

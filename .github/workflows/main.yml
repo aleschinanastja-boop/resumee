@@ -1,0 +1,24 @@
+name: Build Resume
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-resume:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t resume-builder .
+
+      - name: Run Docker container
+        run: docker run --rm -v "$PWD:/resume" resume-builder
+
+      - name: Check PDF exists
+        run: test -f CV/main.pdf
